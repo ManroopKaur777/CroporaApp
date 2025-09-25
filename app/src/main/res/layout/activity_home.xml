@@ -7,22 +7,34 @@
     android:background="#F0F8EC"
     android:padding="16dp">
 
-    <!-- Header Section -->
+    <!-- 🔹 Header Section (App Name + Profile Icon) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="space_between|center_vertical">
+        android:gravity="center_vertical"
+        android:padding="8dp">
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_logo"   <!-- replace with your actual logo file -->
+        android:contentDescription="App Logo"
+        android:layout_marginEnd="8dp" />
 
+        <!-- App Title -->
         <TextView
             android:id="@+id/appTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.9"
             android:text="Cropora"
+            android:textColor="@android:color/holo_green_dark"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_green_dark" />
+            android:textStyle="bold" />
 
+        <!-- Profile Icon -->
         <ImageView
             android:id="@+id/profileIcon"
             android:layout_width="40dp"
@@ -32,16 +44,16 @@
             android:padding="8dp" />
     </LinearLayout>
 
-    <!-- Greeting -->
+    <!-- 🔹 Greeting Section -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Good Morning, Farmer"
         android:textSize="16sp"
         android:paddingTop="8dp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/holo_green_dark" />
 
-    <!-- Search Bar -->
+    <!-- 🔹 Search Bar -->
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
@@ -52,21 +64,23 @@
         android:padding="10dp"
         android:layout_marginTop="10dp" />
 
-    <!-- Feature Grid -->
+    <!-- 🔹 Feature Grid (Icons + Text) -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="3"
-        android:rowCount="2"
         android:layout_marginTop="16dp">
 
-        <!-- Example: Pest Advisory -->
+        <!-- Pest Advisory -->
         <LinearLayout
+            android:id="@+id/btnPestAdvisory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
 
             <ImageView
                 android:layout_width="50dp"
@@ -83,73 +97,134 @@
                 android:gravity="center" />
         </LinearLayout>
 
-        <!-- Repeat same pattern for Weather Updates, Subsidies, etc -->
+        <!-- Weather -->
+        <LinearLayout
+            android:id="@+id/btnWeather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_weather"
+                android:background="@drawable/circle_bg"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weather"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Subsidies -->
+        <LinearLayout
+            android:id="@+id/btnSubsidies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_money"
+                android:background="@drawable/circle_bg"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subsidies"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Crop Info -->
+        <LinearLayout
+            android:id="@+id/btnCropInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_crop"
+                android:background="@drawable/circle_bg"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crop Info"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Market Prices -->
+        <LinearLayout
+            android:id="@+id/btnMarketPrices"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_market"
+                android:background="@drawable/circle_bg"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Market Prices"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Government Schemes -->
+        <LinearLayout
+            android:id="@+id/btnSchemes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_scheme"
+                android:background="@drawable/circle_bg"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Schemes"
+                android:textSize="14sp"
+                android:gravity="center" />
+        </LinearLayout>
+
     </GridLayout>
-
-    <!-- AI Suggestions -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AI Suggestions"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_card"
-            android:text="Wheat is vulnerable to rust this week"
-            android:padding="10dp"
-            android:layout_margin="4dp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_card"
-            android:text="Best time to irrigate rice: morning"
-            android:padding="10dp"
-            android:layout_margin="4dp" />
-    </LinearLayout>
-
-    <!-- Updates -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Updates"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weather Alert…notification1"
-        android:background="@drawable/rounded_card"
-        android:padding="10dp"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Notification 2"
-        android:background="@drawable/rounded_card"
-        android:padding="10dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Bottom Navigation -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu" />
-
-</LinearLayout>
